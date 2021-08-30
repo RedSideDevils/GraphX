@@ -7,6 +7,9 @@ class Matrix:
         pg.font.init()
         self.RES = self.WIDTH, self.HEIGHT = 800, 800  #Resolution of Window
         self.screen = pg.display.set_mode(self.RES)
+        self.icon = pg.image.load('icon.png')
+        pg.display.set_caption("GraphX")
+        pg.display.set_icon(self.icon)
         self.clock = pg.time.Clock()
         self.x0 = self.WIDTH // 2                      #Function X0 point
         self.y0 = self.HEIGHT // 2                     #Function Y0 Point
@@ -15,10 +18,11 @@ class Matrix:
         self.x = -(self.x0 / self.Unit)                #Function X starting Point
         self.FPS = 360                                 #FPS limiter (120 is default)
         self.DrawSpeed = 0.1                           #Function Draw Speed (default 0.1)
+        self.ShowUnits = False                         #Change To True for showing Digits
         self.myfont = pg.font.Font("Roboto-Bold.ttf", 12)
 
     def f(self, x):
-        return (x ** 3) + 2
+        return abs(x)
 
     def DrawText(self, scr, text, x, y):
         textsurface = self.myfont.render(text, False, (255, 0, 0))
@@ -42,7 +46,7 @@ class Matrix:
         pg.draw.line(self.screen, (0, 255, 0), [self.x0, 0], [self.x0, self.HEIGHT], 3)
         pg.draw.circle(self.screen, (255, 0, 0), [self.x0, self.y0], 8)
 
-        if (self.Unit >= 25):
+        if (self.Unit >= 25 and self.ShowUnits):
             x_draw = 0
             while x_draw <= self.WIDTH:
                 self.DrawText(self.screen, str(x_draw), x_draw, self.y0 + 5)
