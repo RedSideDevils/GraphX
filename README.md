@@ -1,4 +1,4 @@
-# Function Graphic
+# GraphX
 Made By RedSide Devils 
 - @k4sh1r1nkut0
 - @albert666h
