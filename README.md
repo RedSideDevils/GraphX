@@ -1,5 +1,5 @@
 # GraphX
-Made By RedSide Devils 
+Made By RedSideDevils 
 - @k4sh1r1nkut0
 - @albert666h
 
